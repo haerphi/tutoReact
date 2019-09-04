@@ -14,7 +14,9 @@ Bienvenue dans ce tuto sur React, pour ce tuto, je vais essayer de respecter les
    3. Installer React-Dom : `npm install react-dom`
    4. Installer Parcel : `npm install parcel-bundler`
 1. Créer la structure de dossier
+
    1. Créer un dossier `src` qui possèdera les fichiers suviant:
-      - `style.css`
-      - `idnex.html`
+
+      - `style.css` : Il sera importer mais pas implémenter
+      - `idnex.html` : Il doit possèder une structure HTML de base. Il faut juster ajouter une div : `<dib id="root"> </div>
       - `app.js`
