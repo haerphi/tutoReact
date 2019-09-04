@@ -81,3 +81,30 @@ Après les imports, nous créer une `class` react qui hérite de la class `React
 Ensuite nous avons la méthode `render()` qui sera appeler pour l'affichage de ce que doit contenir la page, vous remarquerez que nous avons de l'HTML dans le return de celui-ci mais j'y reviendrai bientôt. <br />
 Pour finir, nous avons `ReactDOM.render(...)` ReactDOM prend en premier paramètre la class que l'on a crée juste avant (écris d'une manière un peu particulère qui appel aussi sa méthode render) et en second paramètre l'emplacement où il doit l'écrire sur la page HTM <br />
 Avec ligne de code actuel, vous pouvez exectuer parcel et voir le résultat. Si vous êtes dans le dossier du projet: `parcel ./src/index.html`
+# Les components
+Comme dit plus haut, toute la logique sera dans un fichier (`app.js`) et les components n'auront qu'une tâche. Par exemple, nous avons déjà créer un component `timer.js` mais nous devons encore l'implémenter.
+Voici les quelques étapes qu'il faut faire pour créer un component:
+1. Créer un fichier dans le dossier `components`
+2. Créer la base du fichier (soit en class ou en fonction, personnelement, j'ai une préférence pour les fonctions): <br />
+```javascript
+import React from "react";
+
+function Timer() {
+  return <div></div>;
+}
+
+export default Timer;
+```
+3. L'importer dans le fichier `app.js`, dans le haut du fichier après l'import CSS vous pouvez écrire : `import Timer from "./components/timer";` (l'extention du fichier n'est pas nécessaire)
+4. Une fois l'import fait nous pouvons l'introduire dans la méthode `render()`
+```javascript
+render() {
+    return (
+      <div className={"container"}>
+        {"Hello world"} 
+        <Timer />
+      </div>
+    );
+  }
+```
+Ceci est comme une structure HTML et tout ce qui se trouve dans le return de la function `Timer()` (du fichier `timer.js`) sera afficher à la place de `<Timer />`
