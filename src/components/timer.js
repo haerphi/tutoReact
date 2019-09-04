@@ -1,7 +1,7 @@
 import React from "react";
 
-function Timer() {
-  return <div></div>;
+function Timer(props) {
+  return <div>{props.seconde}</div>;
 }
 
 export default Timer;
