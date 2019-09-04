@@ -12,4 +12,9 @@ Bienvenue dans ce tuto sur React, pour ce tuto, je vais essayer de respecter les
    1. Initialiser le projet : `npm init`
    2. Installer React : `npm install react`
    3. Installer React-Dom : `npm install react-dom`
-   4. Installer parcel : `npm install parcel-bundler`
+   4. Installer Parcel : `npm install parcel-bundler`
+1. Créer la structure de dossier
+   1. Créer un dossier `src` qui possèdera les fichiers suviant:
+      - `style.css`
+      - `idnex.html`
+      - `app.js`
