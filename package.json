@@ -1,0 +1,24 @@
+{
+  "name": "tutoreact",
+  "version": "1.0.0",
+  "description": "# Introduction",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haerphi/tutoReact.git"
+  },
+  "author": "Haerphi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haerphi/tutoReact/issues"
+  },
+  "homepage": "https://github.com/haerphi/tutoReact#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
