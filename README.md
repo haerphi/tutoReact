@@ -18,5 +18,5 @@ Bienvenue dans ce tuto sur React, pour ce tuto, je vais essayer de respecter les
    1. Créer un dossier `src` qui possèdera les fichiers suviant:
 
       - `style.css` : Il sera importer mais pas implémenter
-      - `idnex.html` : Il doit possèder une structure HTML de base. Il faut juster ajouter une div : `<dib id="root"> </div>
+      - `idnex.html` : Il doit possèder une structure HTML de base. Il faut juster ajouter une div : `<dib id="root"> </div>`
       - `app.js`
