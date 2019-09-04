@@ -6,11 +6,16 @@ import "./style.css";
 import Timer from "./components/timer";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.seconde = 60;
+  }
+
   render() {
     return (
       <div className={"container"}>
-        {"Hello world"}
-        <Timer />
+        {"Temps restant : "}
+        <Timer seconde={this.seconde} />
       </div>
     );
   }
