@@ -95,7 +95,7 @@ function Timer() {
 
 export default Timer;
 ```
-3. L'importer dans le fichier `app.js`, dans le haut du fichier après l'import CSS vous pouvez écrire : `import Timer from "./components/timer";` (l'extention du fichier n'est pas nécessaire)
+3. L'importer dans le fichier `app.js`, dans le haut du fichier `app.js` après l'import CSS vous pouvez écrire : `import Timer from "./components/timer";` (l'extention du fichier n'est pas obligatoire)
 4. Une fois l'import fait nous pouvons l'introduire dans la méthode `render()`
 ```javascript
 render() {
