@@ -81,7 +81,10 @@ Après les imports, nous créer une `class` react qui hérite de la class `React
 Ensuite nous avons la méthode `render()` qui sera appeler pour l'affichage de ce que doit contenir la page, vous remarquerez que nous avons de l'HTML dans le return de celui-ci mais j'y reviendrai bientôt. <br />
 Pour finir, nous avons `ReactDOM.render(...)` ReactDOM prend en premier paramètre la class que l'on a crée juste avant (écris d'une manière un peu particulère qui appel aussi sa méthode render) et en second paramètre l'emplacement où il doit l'écrire sur la page HTM <br />
 Avec ligne de code actuel, vous pouvez exectuer parcel et voir le résultat. Si vous êtes dans le dossier du projet: `parcel ./src/index.html`
+
 # Les components
+
+## Création + import
 Comme dit plus haut, toute la logique sera dans un fichier (`app.js`) et les components n'auront qu'une tâche. Par exemple, nous avons déjà créer un component `timer.js` mais nous devons encore l'implémenter.
 Voici les quelques étapes qu'il faut faire pour créer un component:
 1. Créer un fichier dans le dossier `components` (`timer.js` pour l'exemple)
@@ -109,3 +112,50 @@ render() {
 ```
 Ceci est comme une structure HTML et tout ce qui se trouve dans le return de la function `Timer()` (du fichier `timer.js`) sera afficher à la place de `<Timer />` <br />
 Actuellement, rien ne changera dans le rendu sur le navigateur car la balise `div` dans la function `Timer()` est vide.
+
+## Paramètre & propriété
+Il est possible de donner des variables de `app.js` vers nos componenents. Pour ce faire, lors de l'appel de notre componenent il suffit de rajouter : `clé={valeur}` par example si je veux que mes secondes s'affiches via le component `Timer`, il faudra écrire : <br />
+```javascript
+<Timer seconde={this.seconde} />
+```
+et ma variable seconde sera acceccible dans timer. (Il ne faut pas oublié de déclarer seconde dans le constructeur). <br />
+Actuellement, votre fichier app.js doit ressembler à ceci: <br />
+```javacript
+//react imports
+import React from "react";
+import ReactDOM from "react-dom";
+//css file
+import "./style.css";
+import Timer from "./components/timer";
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.seconde = 60;
+  }
+
+  render() {
+    return (
+      <div className={"container"}>
+        {"Temps restant : "}
+        <Timer seconde={this.seconde} />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.querySelector("#root"));
+```
+
+pour récuperer seconde dans `timer.js`, nous allons utiler son paramètre (que l'on va devoir rajouter): <br />
+```javascript
+import React from "react";
+
+function Timer(props) {
+  return <div>{props.seconde}</div>;
+}
+
+export default Timer;
+```
+/!\ Veuillez noter que seconde est le nom que j'ai donné lorsque j'ai fais `seconde=...` dans le fichier `app.js` si à la place de seconde, j'avais mis `truc=...` j'aurai fais `props.truc`.<br />
+Et voilà maintenant la valeur de votre variable seconde s'affiche !
