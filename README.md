@@ -84,7 +84,7 @@ Avec ligne de code actuel, vous pouvez exectuer parcel et voir le résultat. Si 
 # Les components
 Comme dit plus haut, toute la logique sera dans un fichier (`app.js`) et les components n'auront qu'une tâche. Par exemple, nous avons déjà créer un component `timer.js` mais nous devons encore l'implémenter.
 Voici les quelques étapes qu'il faut faire pour créer un component:
-1. Créer un fichier dans le dossier `components`
+1. Créer un fichier dans le dossier `components` (`timer.js` pour l'exemple)
 2. Créer la base du fichier (soit en class ou en fonction, personnelement, j'ai une préférence pour les fonctions): <br />
 ```javascript
 import React from "react";
