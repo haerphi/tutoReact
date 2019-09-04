@@ -1,4 +1,3 @@
-<!-- prettier-ignore -->
 # tutoReact
 
 # Introduction
@@ -23,18 +22,13 @@ Le principe de react est crée plein de petit component qui n'ont qu'une utilite
       ```<dib id="root"> </div>```
       - `app.js`: Contiendra toute la logique du programme
 
-      2. Créer un dossier `components` dans le dossier `src` qui possèdera tout nos "components" nous allons créer un component `timer` (créer un fichier `timer.js` dans le dossier `components`).<br />
-      Voici la base du fichier `timer.js`:<br />
-      ```
-      import React from 'react'
-
-function timer() {
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-export default timer
-      ```
+      2. Créer un dossier `components` dans le dossier `src` qui possèdera tout nos "components" nous allons créer un component `timer` (créer un fichier `timer.js` dans le dossier `components`).
+      Voici la base du fichier `timer.js`:
+    ```
+    import React from "react";
+    function timer() {
+      return <div></div>;
+    }
+    export default timer;
+    ```
+      
