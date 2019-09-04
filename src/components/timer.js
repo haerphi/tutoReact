@@ -1,7 +1,7 @@
 import React from "react";
 
-function timer() {
+function Timer() {
   return <div></div>;
 }
 
-export default timer;
+export default Timer;
