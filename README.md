@@ -107,4 +107,5 @@ render() {
     );
   }
 ```
-Ceci est comme une structure HTML et tout ce qui se trouve dans le return de la function `Timer()` (du fichier `timer.js`) sera afficher à la place de `<Timer />`
+Ceci est comme une structure HTML et tout ce qui se trouve dans le return de la function `Timer()` (du fichier `timer.js`) sera afficher à la place de `<Timer />` <br />
+Actuellement, rien ne changera dans le rendu sur le navigateur car la balise `div` dans la function `Timer()` est vide.
