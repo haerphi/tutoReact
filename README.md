@@ -112,6 +112,7 @@ render() {
 ```
 Ceci est comme une structure HTML et tout ce qui se trouve dans le return de la function `Timer()` (du fichier `timer.js`) sera afficher à la place de `<Timer />` <br />
 Actuellement, rien ne changera dans le rendu sur le navigateur car la balise `div` dans la function `Timer()` est vide.
+/!\ La manière dont est déclarée `this.seconde` changera dans la partie sur les [**states**](#state)
 
 ## Paramètre & propriété
 Il est possible de donner des variables de `app.js` vers nos componenents. Pour ce faire, lors de l'appel de notre componenent il suffit de rajouter : `clé={valeur}` par example si je veux que mes secondes s'affiches via le component `Timer`, il faudra écrire : <br />
@@ -159,3 +160,24 @@ export default Timer;
 ```
 /!\ Veuillez noter que seconde est le nom que j'ai donné lorsque j'ai fais `seconde=...` dans le fichier `app.js` si à la place de seconde, j'avais mis `truc=...` j'aurai fais `props.truc`.<br />
 Et voilà maintenant la valeur de votre variable seconde s'affiche !
+
+## Le binding
+Exporter une méthode ? C'est possible ! <br />
+Le binding sert à rendre une méthode acceccible dans un autre component. <br />
+Par exemple si nous souhaitons créer un component `bouton.js` et que celui modulable pour ne pas devoir faire :
+  - boutonPlay
+  - boutonStop
+  - ...
+Nous, nous n'aurons qu'un `bouton.js` qui fera la fonction play, stop... <br />
+Pour commmencer nous allons créer la méthode `plus` dans le fichier `app.js` <br />
+```javascript
+plusFunction() {
+    this.seconde++;
+  }
+```
+Ensuite, il va falloir la "binder" dans le constructeur: <br />
+```javascript
+this.plus = this.plusFunction().bind(this);
+```
+
+# state <a id="state"></a>
