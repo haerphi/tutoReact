@@ -203,6 +203,30 @@ Une fois importer on peut l'introduire dans la méthode `render()` de la manièr
 <Bouton value={"+"} handleFunction={this.plus} />
 ```
 Pour rappel : `this.plus` correspond au binding vu juste avant. <br />
-Maintenant que tout ça est fait, vous avez un petit bouton "+" **MAIS** rien ne se passe... C'est normal, l'affichage ne se met pas à jour et pour celà, nous verrons ça au point qui suis avec les "state". En attendant, vous devrez vous contenter de la console comme preuve que les secondes avance quand on appuie sur le "+". <br />
+Maintenant que tout ça est fait, vous avez un petit bouton "+" **MAIS** rien ne se passe... C'est normal, l'affichage ne se met pas à jour et pour celà, nous verrons ça au point qui suit avec les "states". En attendant, vous devrez vous contenter de la console comme preuve que les secondes avance quand on appuie sur le "+". <br />
 
 # States <a id="state"></a>
+
+## Introduction
+Les states sont des variables qui sont écoutées en permanence par react et mettent à jour l'affichage lorsque celle(s)-ci change(nt) de valeur. <br />
+Dans cette partie du tuto, nous allons re-éditer du code de `app.js`, nous allons surtout modifier les choses qui concerne la variable `this.seconde`. <br />
+A la place de déclarer seconde comme une variable normal, nous allons déclarer seconde de la manière suivante: <br />
+```javascript
+this.state = {
+      second: 60
+    };
+```
+Maintenant que nous avons modifier la déclaration de `seconde` il va falloir modifier les méthodes qui l'utilise : dans notre cas, nous n'avons pour le moment que la méthode `plusFunction()`. <br />
+Pour modifier une variable dans un `this.state`, nous allons devoir utiliser la méthode `this.setState()`<br />
+```javascript
+plusFunction() {
+    this.setState(prevState => ({
+      second: prevState.seconde - 1
+    }));
+    console.log(this.state.second);
+  }
+```
+Vous pouvez voir que j'utilise une variable nommée `prevState`, cette variable possède l'état "actuel" de `this.state`, très utile pour le cas actuel où je dois décrémenter une valeur. <br />
+Vous pouvez aussi constater que je n'ai plus `console.log(this.seconde)` mais `console.log(this.state.second);`, c'est de cette manière que l'on peut "lire" la valeur d'une variable dans l'objet `this.state`. <br />
+ Il ne nous reste plus la modifier dans le render et ça sera bon ! <br />
+ `<Timer seconde={this.state.second} />`
