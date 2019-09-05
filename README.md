@@ -173,11 +173,36 @@ Pour commmencer nous allons créer la méthode `plus` dans le fichier `app.js` <
 ```javascript
 plusFunction() {
     this.seconde++;
+    console.log(this.seconde);
   }
 ```
 Ensuite, il va falloir la "binder" dans le constructeur: <br />
 ```javascript
 this.plus = this.plusFunction().bind(this);
 ```
+Ensuite, il ne nous reste plus qu'a mettre en place de le component: (`bouton.js`) <br />
+```javascript
+import React from "react";
 
-# state <a id="state"></a>
+function Bouton(props) {
+  return (
+    <button type={"button"} onClick={props.handleFunction}>
+      {props.value}
+    </button>
+  );
+}
+
+export default Bouton;
+```
+On peut noter que j'utilise 2 proporiétés qui se trouve dans `props` :
+ - `handleFunction` : qui va contenir la fonction que le bouton doit executer
+ - `value` : qui va contenir le texte de notre bouton
+Ensuite il faut l'importer dans le fichier `app.js` comme ici plus haut dans la partie sur les imports. <br />
+Une fois importer on peut l'introduire dans la méthode `render()` de la manière suivante: <br />
+```javascript
+<Bouton value={"+"} handleFunction={this.plus} />
+```
+Pour rappel : `this.plus` correspond au binding vu juste avant. <br />
+Maintenant que tout ça est fait, vous avez un petit bouton "+" **MAIS** rien ne se passe... C'est normal, l'affichage ne se met pas à jour et pour celà, nous verrons ça au point qui suis avec les "state". En attendant, vous devrez vous contenter de la console comme preuve que les secondes avance quand on appuie sur le "+". <br />
+
+# States <a id="state"></a>
