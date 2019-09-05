@@ -9,20 +9,24 @@ import Bouton from "./components/bouton";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.seconde = 60;
+    this.state = {
+      second: 60
+    };
     this.plus = this.plusFunction.bind(this);
   }
 
   plusFunction() {
-    this.seconde++;
-    console.log(this.seconde);
+    this.setState(prevState => ({
+      second: prevState.second + 1
+    }));
+    console.log(this.state.second);
   }
 
   render() {
     return (
       <div className={"container"}>
         {"Temps restant : "}
-        <Timer seconde={this.seconde} />
+        <Timer seconde={this.state.second} />
         <Bouton value={"+"} handleFunction={this.plus} />
       </div>
     );
