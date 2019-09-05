@@ -1,13 +1,13 @@
-<!-- prettier-ignore -->
 # tutoReact
-
+(Ceci est un tuto personnel avec ce que j'ai compris, tout n'est pas parfait/correcte)
 # Introduction
 Bienvenue dans ce tuto sur React, pour ce tuto, je vais essayer de respecter les règles d’écriture de code Eslint de Becode.
 Pour ce tuto, nous allons créer un compte à rebours.
 
 ## Fonctionnement du projet à venir
-Notre compte à rebours aura un nombre qui décompte, un bouton start et un bouton reset. 
+Notre compte à rebours aura un nombre qui décompte et un bouton +, -, start, stop etreset. 
 Le principe de React est de créer plein de petits components qui n'ont qu'une utilitée chacun (ou une utilitée facilement modulable ) et d'avoir toute la logique dans le fichier principal.
+
 
 # Setup
 
@@ -19,14 +19,14 @@ Le principe de React est de créer plein de petits components qui n'ont qu'une u
    3. Installer React-Dom : `npm install react-dom`
    4. Installer Parcel : `npm install parcel-bundler`
 2. Créer la structure de dossier
-      1. Créer un dossier `src` qui possèdera les fichiers suviants:
-            - `style.css` : Il sera importé mais pas implémenté.
-            - `index.html` : Il doit posséder une structure HTML de base. Il faut juste ajouter une div : <br />
-            ```<div id="root"> </div>```
-            - `app.js`: Contiendra toute la logique du programme
 
-      2. Créer un dossier `components` dans le dossier `src` qui possèdera tout nos "components". 
-        Nous allons créer un component `timer` (créer un fichier `timer.js` dans le dossier `components`).<br />
+   1. Créer un dossier `src` qui possèdera les fichiers suviants:
+      - `style.css` : Il sera importer mais pas implémenté
+      - `idnex.html` : Il doit possèder une structure HTML de base. Il faut juster ajouter une div : `<div id="root"> </div>`
+      - `app.js`: Contiendra toute la logique du programme
+
+   2. Créer un dossier `components` dans le dossier `src` qui possèdera tout nos "components". <br />
+   Nous allons créer un component `timer` (créer un fichier `timer.js` dans le dossier `components`).<br />
       
 ## Récapitulatif
 Normalement vous devriez obtenir un structure de dossier qui ressemble à celle-ci:
