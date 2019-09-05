@@ -406,7 +406,7 @@ La variable est déclarée à `false` pour ne pas que le modal soit afficher au 
 Maintenant que la variable est déclarée dans le state<br />
 Il faut le rendre `true` lorsque le timer atteint 0. (voir `decrementFunction()` dans l'exemple)
 
-Une fois il ne reste plus qu'à modifier l'appel de `<Modal />` par <br />
+Une fois il ne reste plus qu'à modifier l'appel de `<Modal />` dans le `render()` <br />
 ```javascript
 <Modal show={this.state.show} />
 ```
