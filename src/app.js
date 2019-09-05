@@ -5,13 +5,16 @@ import ReactDOM from "react-dom";
 import "./style.css";
 import Timer from "./components/timer";
 import Bouton from "./components/bouton";
+import Modal from "./components/modal";
+import todoList from "./components/todoList";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     //state
     this.state = {
-      second: 60
+      second: 60,
+      show: false
     };
     //binding
     this.plus = this.plusFunction.bind(this);
@@ -45,6 +48,9 @@ class App extends React.Component {
       this.intervalID = null;
       console.log("FIN");
       //AFFICHER L'ALERT
+      this.setState(prevState => ({
+        show: true
+      }));
     }
   }
 
@@ -52,7 +58,7 @@ class App extends React.Component {
     if (this.intervalID === null) {
       this.intervalID = setInterval(() => {
         this.decrementFunction();
-      }, 200);
+      }, 50);
       console.log("START");
     } else {
       console.log("Already started");
@@ -84,6 +90,8 @@ class App extends React.Component {
         <Bouton value={"Start"} handleFunction={this.start} />
         <Bouton value={"Stop"} handleFunction={this.stop} />
         <Bouton value={"Reset"} handleFunction={this.reset} />
+
+        <Modal show={this.state.show} />
       </div>
     );
   }
