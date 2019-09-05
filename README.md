@@ -235,7 +235,7 @@ Vous pouvez aussi constater que je n'ai plus `console.log(this.seconde)` mais `c
  ```
 PS: c'est normal que le `this.state.second` soit en avance de 1 sur le `console.log()`. (C'est une question d'asynchrone) <br />
 Avant la suite du tuto sur les `React.portal` pour faire une notification qui appraîtra à la fin du compte à rebourd, je vais déjà écrire toute la logique du compte à rebours. C'est à dire créer les boutons start/reset/stop reset à partir du component `bouton.js` créer précédement et utiliser un `setInterval()` pour l'écoulement de celui ci.
-Voilà mon fichier: <br />
+Voilà mon fichier `app.js`: <br />
 ```javascript
 //react imports
 import React from "react";
