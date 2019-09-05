@@ -334,3 +334,64 @@ class App extends React.Component {
 ReactDOM.render(<App />, document.querySelector("#root"));
 ```
 </details>
+
+# React.portal / Modal
+React portal permet de créer et manipuler des `div`(ou d'autre balise) en dehors de sa `<div id="root">`. <br />
+Cela va nous être utile pour créer une alert sans modifier notre HTML ou CSS. <br />
+Nous allons commencer par créer un component `modal.js` mais il sera légerement différent de nos autres components: <br />
+
+## Commencement
+Créer un fichier `modal.js` avec les autres components: <br />
+```javascript
+import React from "react";
+import ReactDOM from "react-dom";
+
+function Modal(props) {
+  return ReactDOM.createPortal(<div id={"modal"}></div>, document.body);
+}
+
+export default Modal;
+```
+Pas de panique, je vais revenir sur les éléments inconu juste après l'import dans le fichier `app.js`. <br />
+Il va falloir l'importer dans le fichier `app.js` et le rajouter dans le `render()`: <br />
+```javascript
+render() {
+    return (
+      <div className={"container"}>
+        {"Temps restant : "}
+        <Timer seconde={this.state.second} />
+        <Bouton value={"+"} handleFunction={this.plus} />
+        <Bouton value={"-"} handleFunction={this.moins} />
+        <Bouton value={"Start"} handleFunction={this.start} />
+        <Bouton value={"Stop"} handleFunction={this.stop} />
+        <Bouton value={"Reset"} handleFunction={this.reset} />
+
+        <Modal />
+      </div>
+    );
+  }
+```
+
+## Explications
+Commençons par le fichier `modal.js` il se compose comme les 2 autres components que l'on a déjà à la différence qu'il ne retourne pas du JSX mais un `ReactDOM.createPortal()`. <br />
+`ReactDOM.createPortal()` possède 2 paramètres, le premier est ce qu'il doit ajotuer dans l'HTML et l'emplacement où il doit l'injecter dans l'HTML (un peu comme le `render()` de `app.js`). <br />
+Maintenant si vous examiner votre page avec l'inspecteur vous pourrez voir une nouvelle `<div id="modal>` en-dessous de la `<div id="root">`. Et bien, c'est notre modal ! Et si on lui rajoutait un peu de texte comme par exemple `"Temps écouler !"` et il va aussi falloir faire en sorte qu'il apparaisse une fois le temps écouler. <br />
+Pour le le faire disparaître et apparaître nous allons lui passer un paramètre booléen (True/False) et `return null` si le paramètre est `false`. <br />
+```javascript
+import React from "react";
+import ReactDOM from "react-dom";
+
+function Modal(props) {
+  if (props.show) {
+    return ReactDOM.createPortal(
+      <div id={"modal"}>{"Temps écouler ! "}</div>,
+      document.body
+    );
+  }
+  return null;
+}
+
+export default Modal;
+```
+Maintenant il va falloir implémenter ce système dans `app.js`. Pour ce faire on va rajouter une variable (que je nomme show). **Mais**, il est important de mettre cette variable dans le state sinon il ne prendra pas en compte son changement d'état et n'affichera pas le chamgement. <br />
+J'ai donc créer rajouter une valeur `show` dans le state qui est égale à `false` car mon modal ne doit pas être afficher
