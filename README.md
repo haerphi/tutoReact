@@ -393,5 +393,20 @@ function Modal(props) {
 
 export default Modal;
 ```
-Maintenant il va falloir implémenter ce système dans `app.js`. Pour ce faire on va rajouter une variable (que je nomme show). **Mais**, il est important de mettre cette variable dans le state sinon il ne prendra pas en compte son changement d'état et n'affichera pas le chamgement. <br />
-J'ai donc créer rajouter une valeur `show` dans le state qui est égale à `false` car mon modal ne doit pas être afficher
+Maintenant il va falloir implémenter ce système dans `app.js`. Pour ce faire on va rajouter une variable (que je nomme `show`). **Mais**, il est important de mettre cette variable dans le state sinon il ne prendra pas en compte son changement d'état et n'affichera pas le chamgement. <br />
+```javascript
+//state
+    this.state = {
+      second: 60,
+      show: false
+    };
+```
+La variable est déclarée à `false` pour ne pas que le modal soit afficher au début. <br />
+## implémentation du changement affichier/cacher
+Maintenant que la variable est déclarée dans le state<br />
+Il faut le rendre `true` lorsque le timer atteint 0. (voir `decrementFunction()` dans l'exemple)
+
+Une fois il ne reste plus qu'à modifier l'appel de `<Modal />` par <br />
+```javascript
+<Modal show={this.state.show} />
+```
