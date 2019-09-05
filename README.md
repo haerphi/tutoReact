@@ -1,13 +1,12 @@
-<!-- prettier-ignore -->
 # tutoReact
-
+(Ceci est un tuto personnel avec ce que j'ai compris, tout n'est pas parfait/correcte)
 # Introduction
 Bienvenue dans ce tuto sur React, pour ce tuto, je vais essayer de respecter les règles d’écriture de code Eslint de Becode.
 Pour ce tuto, nous allons créer un compte à rebours.
 
 ## Fonctionnement du projet à venir
 Notre compte à rebours aura un nombre qui décompte et un bouton +, -, start, stop etreset. 
-Le principe de react est crée plein de petit component qui n'ont qu'une utiliter (ou un utiliter modulable facilement) et d'avoir toute la logique dans le fichier principale.
+Le principe de react est de crée plein de petit component qui n'ont qu'une utiliter (ou un utiliter modulable facilement) et d'avoir toute la logique dans le fichier principale.
 
 # Setup
 
