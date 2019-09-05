@@ -227,6 +227,7 @@ plusFunction() {
   }
 ```
 Vous pouvez voir que j'utilise une variable nommée `prevState`, cette variable possède l'état "actuel" de `this.state`, très utile pour le cas actuel où je dois décrémenter une valeur. <br />
+/!\ `prevStae` est un pramètre optionel, si n'utilise `prevState` vous pouvez mettre des parenthèses vide à la place. <br /> 
 Vous pouvez aussi constater que je n'ai plus `console.log(this.seconde)` mais `console.log(this.state.second);`, c'est de cette manière que l'on peut "lire" la valeur d'une variable dans l'objet `this.state`. <br />
  Il ne nous reste plus la modifier dans le render et ça sera bon ! <br />
  ```javascript
@@ -234,3 +235,98 @@ Vous pouvez aussi constater que je n'ai plus `console.log(this.seconde)` mais `c
  ```
 PS: c'est normal que le `this.state.second` soit en avance de 1 sur le `console.log()`. (C'est une question d'asynchrone) <br />
 Avant la suite du tuto sur les `React.portal` pour faire une notification qui appraîtra à la fin du compte à rebourd, je vais déjà écrire toute la logique du compte à rebours. C'est à dire créer les boutons start/reset/stop reset à partir du component `bouton.js` créer précédement et utiliser un `setInterval()` pour l'écoulement de celui ci.
+Voilà mon fichier: <br />
+```javascript
+//react imports
+import React from "react";
+import ReactDOM from "react-dom";
+//css file
+import "./style.css";
+import Timer from "./components/timer";
+import Bouton from "./components/bouton";
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    //state
+    this.state = {
+      second: 60
+    };
+    //binding
+    this.plus = this.plusFunction.bind(this);
+    this.moins = this.moinsFunction.bind(this);
+    this.reset = this.resetFunction.bind(this);
+    this.start = this.startFunction.bind(this);
+    this.stop = this.stopFunction.bind(this);
+    //variable
+    this.defaultTimer = 60;
+    this.intervalID = null;
+  }
+
+  plusFunction() {
+    this.setState(prevState => ({
+      second: prevState.second + 1
+    }));
+  }
+
+  moinsFunction() {
+    this.setState(prevState => ({
+      second: prevState.second - 1
+    }));
+  }
+
+  decrementFunction() {
+    this.setState(prevState => ({
+      second: prevState.second - 1
+    }));
+    if (this.state.second <= 0) {
+      clearInterval(this.intervalID);
+      this.intervalID = null;
+      console.log("FIN");
+      //AFFICHER L'ALERT
+    }
+  }
+
+  startFunction() {
+    if (this.intervalID === null) {
+      this.intervalID = setInterval(() => {
+        this.decrementFunction();
+      }, 200);
+      console.log("START");
+    } else {
+      console.log("Already started");
+    }
+  }
+
+  stopFunction() {
+    clearInterval(this.intervalID);
+    this.intervalID = null;
+    console.log("STOP");
+  }
+
+  resetFunction() {
+    clearInterval(this.intervalID);
+    this.intervalID = null;
+    this.setState(() => ({
+      second: this.defaultTimer
+    }));
+    console.log("RESET");
+  }
+
+  render() {
+    return (
+      <div className={"container"}>
+        {"Temps restant : "}
+        <Timer seconde={this.state.second} />
+        <Bouton value={"+"} handleFunction={this.plus} />
+        <Bouton value={"-"} handleFunction={this.moins} />
+        <Bouton value={"Start"} handleFunction={this.start} />
+        <Bouton value={"Stop"} handleFunction={this.stop} />
+        <Bouton value={"Reset"} handleFunction={this.reset} />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.querySelector("#root"));
+```
