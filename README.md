@@ -238,7 +238,7 @@ Avant la suite du tuto sur les `React.portal` pour faire une notification qui ap
 Voilà mon fichier `app.js`: <br />
 <details>
 <summary>app.js</summary>
-```javascript
+<code>
 //react imports
 import React from "react";
 import ReactDOM from "react-dom";
@@ -332,4 +332,4 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, document.querySelector("#root"));
 ```
-</details>
+</code>
