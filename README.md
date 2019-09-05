@@ -20,10 +20,10 @@ Le principe de react est de crée plein de petit component qui n'ont qu'une util
 2. Créer la structure de dossier
    1. Créer un dossier `src` qui possèdera les fichiers suviant:
       - `style.css` : Il sera importer mais pas implémenter
-      - `idnex.html` : Il doit possèder une structure HTML de base. Il faut juster ajouter une div : `<dib id="root"> </div>
+      - `idnex.html` : Il doit possèder une structure HTML de base. Il faut juster ajouter une div : `<dib id="root"> </div>`
       - `app.js`: Contiendra toute la logique du programme
 
-      2. Créer un dossier `components` dans le dossier `src` qui possèdera tout nos "components" nous allons créer un component `timer` (créer un fichier `timer.js` dans le dossier `components`).<br />
+   2. Créer un dossier `components` dans le dossier `src` qui possèdera tout nos "components" nous allons créer un component `timer` (créer un fichier `timer.js` dans le dossier `components`).<br />
       
 ## Récapitulatif
 Normalement vous devriez obtnir un structure de dossier ressemblante à celle-ci:
