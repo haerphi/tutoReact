@@ -229,4 +229,6 @@ plusFunction() {
 Vous pouvez voir que j'utilise une variable nommée `prevState`, cette variable possède l'état "actuel" de `this.state`, très utile pour le cas actuel où je dois décrémenter une valeur. <br />
 Vous pouvez aussi constater que je n'ai plus `console.log(this.seconde)` mais `console.log(this.state.second);`, c'est de cette manière que l'on peut "lire" la valeur d'une variable dans l'objet `this.state`. <br />
  Il ne nous reste plus la modifier dans le render et ça sera bon ! <br />
- `<Timer seconde={this.state.second} />`
+ ```javascript
+ <Timer seconde={this.state.second} />
+ ```
